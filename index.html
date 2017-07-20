@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .search{
+            width: 250px;
+            height:300px;
+            margin:0 auto;
+            background: rgba(0,0,0,.5);
+            padding:30px 15px;
+        }
+        h2{
+            color:white;
+        }
+        p{
+            margin:20px 0 5px 0;
+            color: white;
+            font-size: 12px;
+        }
+        p>span{
+            float:right;
+            margin-right:20px
+        }
+        input{
+        	
+            width: 150px;
+            height: 30px;
+            border-right: none;
+            outline: none;
+        }
+        .btn{
+            margin-top:1px;
+            padding:9px 19px;
+            height: 33px;
+            border:none;
+            background: white;
+        }
+        .btn2{
+            height: 33px;
+            margin-top:1px;
+            padding:9px 19px;
+            border:none;
+            background: white;
+        }
+        .search{
+        	position: relative;
+        }
+        .search>span:nth-of-type(1){
+            color: white;
+            font-size: 12px;
+            display: block;
+            margin:10px 0
+        }
+        .btn1{
+            width: 247px;
+            height: 40px;
+            line-height: 40px;
+            border:none;
+            color:white;
+            font-size: 18px;
+            background: #0094ef;
+            margin-top:25px;
+            font-family: 微软雅黑;
+            text-align: center;
+        }
+        
+        .list1{
+        	background: white;
+        	width: 247px;
+        	cursor: pointer;
+        	display: none;
+        }
+        .list2{
+        	background: white;
+        	width: 247px;
+        	cursor: pointer;
+        	display: none;
+        }
+        a{
+        	text-decoration: none;
+        	color: black;
+        }
+        .aaa{
+        	display: block;
+        	background: white;
+        	width: 50px;
+        	line-height: 33px;
+        	height: 33px;
+        	margin-top: 1px;
+        	text-align: center;
+        }
+        .bbb{
+        	display: block;
+        	background: white;
+        	width: 50px;
+        	line-height: 33px;
+        	height: 33px;
+        	margin-top: 1px;
+        	text-align: center;
+        }
+        #text,.aaa,.bbb,#text2{
+        	float: left;
+        }
+        
+    </style>
+</head>
+<body>
+	<script src="jquery-1.7.2.min.js"></script>
+<div class="search">
+    <h2>
+        快速搜索消费贷款
+    </h2>
+    <p>
+        贷款金额: 
+        <span>不足一万可用小数表示</span>
+    </p>
+    <div><input type="text" id="text"><span class="aaa">万元</span><button class="btn"> * </button></div>
+    <ul style="position: absolute;" class="list1">
+    	<li><a href="javascript:;">1</a><span>万元</span></li>
+    	<li><a href="javascript:;">2</a><span>万元</span></li>
+    	<li><a href="javascript:;">3</a><span>万元</span></li>
+    	<li><a href="javascript:;">4</a><span>万元</span></li>
+    	<li><a href="javascript:;">5</a><span>万元</span></li>
+    	<li><a href="javascript:;">6</a><span>万元</span></li>
+    	<li><a href="javascript:;">7000</a><span>元</span></li>
+    </ul>
+    <br>
+    <span>贷款期限:</span>
+    <div><input type="text1" id="text2"><span class="bbb">个月</span><button class="btn2"> * </button></div>
+    <ul class="list2">
+    	<li><a href="javascript:;">12</a><span>个月</span></li>
+    	<li><a href="javascript:;">2</a><span>年</span></li>
+    	<li><a href="javascript:;">13</a><span>个月</span></li>
+    	<li><a href="javascript:;">5</a><span>年</span></li>
+    	<li><a href="javascript:;">18</a><span>个月</span></li>
+    	<li><a href="javascript:;">9</a><span>年</span></li>
+    	<li><a href="javascript:;">17</a><span>个月</span></li>
+    </ul>
+    <br>
+    <button class="btn1">搜索一下</button>
+</div>
+<script type="text/javascript">
+	$(".btn").click(function(){
+		$(".list1").toggle();
+	});
+	
+	
+
+	
+	$(".list1>li").click(function(){
+		$(this).parent().css("display","none")
+		var index = $(this).index();
+		var vala = $(this).children().html();
+		var vals = $(this).find("span").text();
+//		var aSpan = $(".aaa").text()
+		console.log(vals);
+		$(vals).css("right","0")
+		$("#text").val(vala)
+		$(".aaa").text(vals)
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	$(".btn2").click(function(){
+		$(".list2").toggle();
+	});
+	$(".list2>li").click(function(){
+		
+		$(this).parent().css("display","none")
+		var index = $(this).index();
+		var vala = $(this).children().html();
+		var vals = $(this).find("span").text();
+		
+		console.log(vals);
+		$(vals).css("right","0")
+		$("#text2").val(vala)
+		$(".bbb").text(vals)
+	});
+</script>
+</body>
+</html>
